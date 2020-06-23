@@ -3,6 +3,7 @@
 export(bed_slide)
 export(metric_mhic)
 export(metric_pwd)
+export(metric_sample_var)
 export(read_bed)
 importFrom(Rcpp,sourceCpp)
 importFrom(tibble,tibble)
