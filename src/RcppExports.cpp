@@ -29,10 +29,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// metric_sample_var
+double metric_sample_var(NumericMatrix x);
+RcppExport SEXP _bedslider_metric_sample_var(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(metric_sample_var(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_bedslider_metric_mhic", (DL_FUNC) &_bedslider_metric_mhic, 3},
     {"_bedslider_metric_pwd", (DL_FUNC) &_bedslider_metric_pwd, 1},
+    {"_bedslider_metric_sample_var", (DL_FUNC) &_bedslider_metric_sample_var, 1},
     {NULL, NULL, 0}
 };
 

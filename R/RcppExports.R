@@ -26,3 +26,15 @@ metric_pwd <- function(x) {
     .Call(`_bedslider_metric_pwd`, x)
 }
 
+#' Calculate sample variance metric for matrix
+#'
+#' @param x numeric matrix
+#'
+#' @export
+#' @examples
+#' mat <- matrix(1:9, ncol = 3)
+#' metric_sample_var(mat)
+metric_sample_var <- function(x) {
+    .Call(`_bedslider_metric_sample_var`, x)
+}
+
