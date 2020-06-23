@@ -5,6 +5,19 @@
 
 using namespace Rcpp;
 
+// metric_mhic
+double metric_mhic(NumericMatrix x, double lower, double upper);
+RcppExport SEXP _bedslider_metric_mhic(SEXP xSEXP, SEXP lowerSEXP, SEXP upperSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type lower(lowerSEXP);
+    Rcpp::traits::input_parameter< double >::type upper(upperSEXP);
+    rcpp_result_gen = Rcpp::wrap(metric_mhic(x, lower, upper));
+    return rcpp_result_gen;
+END_RCPP
+}
 // metric_pwd
 double metric_pwd(NumericMatrix x);
 RcppExport SEXP _bedslider_metric_pwd(SEXP xSEXP) {
@@ -18,6 +31,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_bedslider_metric_mhic", (DL_FUNC) &_bedslider_metric_mhic, 3},
     {"_bedslider_metric_pwd", (DL_FUNC) &_bedslider_metric_pwd, 1},
     {NULL, NULL, 0}
 };
