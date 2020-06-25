@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/EmilHvitfeldt/bedslider/workflows/R-CMD-check/badge.svg)](https://github.com/EmilHvitfeldt/bedslider/actions)
 <!-- badges: end -->
 
 The goal of bedslider is to allow calculating metrics in a sliding
