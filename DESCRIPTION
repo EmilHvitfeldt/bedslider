@@ -21,3 +21,5 @@ Imports:
     slider
 LinkingTo: 
     Rcpp
+URL: https://github.com/EmilHvitfeldt/bedslider
+BugReports: https://github.com/EmilHvitfeldt/bedslider/issues
