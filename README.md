@@ -278,3 +278,55 @@ metric_sample_var(mat[, 1, drop = FALSE])
 metric_sample_var(mat)
 #> [1] 0.01
 ```
+
+## Specify arguments in metric functions
+
+If you want to specify arguments in the metric functions then you need
+can create a little wrapper function and pass that one in
+
+``` r
+mhic_01_09 <- function(x) metric_mhic(x, lower = 0.1, upper = 0.9)
+
+bed_sample %>% 
+  bed_slide(vars = list(beta1),
+            funs = list(beta1_mhic = mhic_01_09),
+            .i = start, size = 100)
+#> # A tibble: 10,000 x 10
+#>    chr    start    end coverage beta1 beta2 beta3 beta4 beta5 beta1_mhic
+#>    <fct>  <int>  <int>    <int> <dbl> <dbl> <dbl> <dbl> <dbl>      <dbl>
+#>  1 chr19 433511 433512        3     1  0     1     1     0.33          0
+#>  2 chr19 433519 433520        3     1  0.67  0     0     0.67          0
+#>  3 chr19 433531 433532        3     1  1     0.67  0     0.67          0
+#>  4 chr19 433554 433555        3     1  0     1     0.33  0.33          0
+#>  5 chr19 433565 433566        3     1  0.67  0.33  0.67  1             0
+#>  6 chr19 433573 433574        3     1  0.67  1     1     0             0
+#>  7 chr19 433608 433609        1     1  0     0     1     1             0
+#>  8 chr19 433623 433624        2     1  1     0.5   1     0             0
+#>  9 chr19 433631 433632        2     1  1     1     0     1             0
+#> 10 chr19 433666 433667        1     1  1     1     0     1             0
+#> # … with 9,990 more rows
+```
+
+or modify the function directly inside the list. If you do it this way
+make sure to use a named list.
+
+``` r
+bed_sample %>% 
+  bed_slide(vars = list(beta1),
+            funs = list(beta1_mhic = function(x) metric_mhic(x, 0.1, 0.9)),
+            .i = start, size = 100)
+#> # A tibble: 10,000 x 10
+#>    chr    start    end coverage beta1 beta2 beta3 beta4 beta5 beta1_mhic
+#>    <fct>  <int>  <int>    <int> <dbl> <dbl> <dbl> <dbl> <dbl>      <dbl>
+#>  1 chr19 433511 433512        3     1  0     1     1     0.33          0
+#>  2 chr19 433519 433520        3     1  0.67  0     0     0.67          0
+#>  3 chr19 433531 433532        3     1  1     0.67  0     0.67          0
+#>  4 chr19 433554 433555        3     1  0     1     0.33  0.33          0
+#>  5 chr19 433565 433566        3     1  0.67  0.33  0.67  1             0
+#>  6 chr19 433573 433574        3     1  0.67  1     1     0             0
+#>  7 chr19 433608 433609        1     1  0     0     1     1             0
+#>  8 chr19 433623 433624        2     1  1     0.5   1     0             0
+#>  9 chr19 433631 433632        2     1  1     1     0     1             0
+#> 10 chr19 433666 433667        1     1  1     1     0     1             0
+#> # … with 9,990 more rows
+```

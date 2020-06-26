@@ -154,3 +154,26 @@ metric_sample_var(mat[, 1, drop = FALSE])
 
 metric_sample_var(mat)
 ```
+
+## Specify arguments in metric functions
+
+If you want to specify arguments in the metric functions then you need can create a little wrapper function and pass that one in
+
+```{r}
+mhic_01_09 <- function(x) metric_mhic(x, lower = 0.1, upper = 0.9)
+
+bed_sample %>% 
+  bed_slide(vars = list(beta1),
+            funs = list(beta1_mhic = mhic_01_09),
+            .i = start, size = 100)
+```
+
+or modify the function directly inside the list. If you do it this way make sure to use a named list.
+
+```{r}
+bed_sample %>% 
+  bed_slide(vars = list(beta1),
+            funs = list(beta1_mhic = function(x) metric_mhic(x, 0.1, 0.9)),
+            .i = start, size = 100)
+```
+
