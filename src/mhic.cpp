@@ -17,7 +17,7 @@ double metric_mhic(NumericMatrix x, double lower = 0.2, double upper = 0.8) {
   double total = 0.0;
 
   for (int i = 0; i < size; ++i) {
-    total += x[i] > lower & x[i] < upper;
+    total += (x[i] > lower) & (x[i] < upper);
   }
 
   total = total / size;

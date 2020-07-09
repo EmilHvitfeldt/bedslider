@@ -7,5 +7,6 @@
 #' @importFrom tibble tibble
 #' @useDynLib bedslider, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
+#' @importFrom rlang .data
 ## usethis namespace: end
 NULL

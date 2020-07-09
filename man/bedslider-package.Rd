@@ -4,9 +4,9 @@
 \name{bedslider-package}
 \alias{bedslider}
 \alias{bedslider-package}
-\title{bedslider: What the Package Does (One Line, Title Case)}
+\title{bedslider: Calculate Metrics .bed Files}
 \description{
-What the package does (one paragraph).
+Calculate metrics in a sliding fashion over .bed files.
 }
 \seealso{
 Useful links:
@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Emil Hvitfeldt \email{emilhhvitfeldt@gmail.com} (\href{https://orcid.org/0000-0002-0679-1945}{ORCID})
 
 }
 \keyword{internal}
