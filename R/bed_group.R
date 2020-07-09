@@ -23,8 +23,7 @@
 #'           funs = list(length, mean),
 #'           group = ggg)
 bed_group <- function(data, vars, funs, group) {
-  fff <- function(...) {
-    x <- list(...)
+  fff <- function(x) {
     mat <- matrix(unlist(x), ncol = length(x))
 
     res <- lapply(funs, function(x) x(mat))
